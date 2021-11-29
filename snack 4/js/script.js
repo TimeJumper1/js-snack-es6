@@ -1,87 +1,33 @@
-// array oggetti squadre di calcio
-const soccerTeam = [
-    {
-        name: 'roma',
-        pointScored: 0,
-        foulsGotten: 0
+let students = [
+    { name: 'Marco', id: 213, grades: 78 },
+    { name: 'Paola', id: 110, grades: 96 },
+    { name: 'Andrea', id: 250, grades: 48 },
+    { name: 'Gaia', id: 145, grades: 74 },
+    { name: 'Luigi', id: 196, grades: 68 },
+    { name: 'Piero', id: 102, grades: 50 },
+    { name: 'Francesca', id: 120, grades: 84 },
+  ];
+//   leggere il "name" degli oggetti dell'array e stamparli in maiuscolo
+// per renderli in maiuscolo nomevariabile.toUpperCase()
+let perTarghe = []
 
-    },
-    {
-        name: 'milan',
-        pointScored: 0,
-        foulsGotten: 0
+students.forEach((element , index , array) => {
+    
+   
+    const txt = element.name.toUpperCase();
+    
+    perTarghe.push(txt);
+});
+console.log(perTarghe)
+// array con i voti sopra a 70
 
-    },
-    {
-        name: 'lazio',
-        pointScored: 0,
-        foulsGotten: 0
-
-    },
-    {
-        name: 'juve',
-        pointScored: 0,
-        foulsGotten: 0
-
-    },
-    {
-        name: 'atlanta',
-        pointScored: 0,
-        foulsGotten: 0
-
-    },
-    {
-        name: 'cagliari',
-        pointScored: 0,
-        foulsGotten: 0
-
-    },
-    {
-        name: 'sassuolo',
-        pointScored: 0,
-        foulsGotten: 0
-
-    }
-];
-// nuovo array
-let newArray = []
-// mettere numeri generati randomicamente in [pointScored] & in [foulsGotten]
-// ciclo per prendere ogni singolo oggetto
-for ( let i = 0; i < soccerTeam.length; i++){
-    const thisTeam = soccerTeam[i];
-    // popolare [pointScored] e [foulsGotten] con numeri "sicuramente presi in modo affidabile da un sito calcistico"
-    const scoredPoint = getRndInteger(0 ,5);
-    const fouls = getRndInteger(0 ,16);
-    thisTeam.pointScored = scoredPoint;
-    thisTeam.foulsGotten = fouls;
-    // creazione nuovo array con solo nomi e falli subiti
-    // da thsTeam prendo solamente gli elementi name  e foulsGotten
-    const {name , foulsGotten} = thisTeam;
-    // creo l'oggetto che abbia solo name e foulsGotten (viene già popolato)
-    const copyTeam = {
-        name,
-        foulsGotten
-    };
-    // metto il nuovo oggetto nell'array di oggetti
-    newArray.push(copyTeam)
-}
-console.log(soccerTeam)
-
-
-
-console.log(newArray)
-
-
-
-
-
-
-
-
-
-
-
-// funzioni
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+const voti = students.filter((element , index , array) => {
+    return element.grades > 70
+});
+console.log(voti)
+// array con i voti sopra a 70 e id maggiore a 120
+const votiAndId = students.filter((element , index , array) => {
+    
+    return element.grades > 70 && element.id > 120
+});
+console.log(votiAndId)
